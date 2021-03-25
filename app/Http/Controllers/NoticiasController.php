@@ -26,14 +26,25 @@ class NoticiasController extends Controller
         return view('dashboard')->with(['noticias' => $noticias]);
     }
 
-    public function edit($id){
-        
+    public function edit($id)
+    {
+
         $noticias = noticias::find($id);
         return view('edit', compact('noticias'));
     }
 
-    public function update($id){
+    public function update(Request $request, noticias $id)
+    {
 
-        
+        $id->update(['titulo' => $request->titulo, 'noticia' => $request->noticia]);
+        $request->validate(['titulo' => 'required', 'noticia' => 'required']);
+        return redirect()->back()->with('message', 'Notícia atualizada!!');
+    }
+
+    public function delete(noticias $id)
+    {
+
+        $id->delete();
+        return redirect()->back();
     }
 }

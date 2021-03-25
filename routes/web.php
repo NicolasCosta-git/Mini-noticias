@@ -29,4 +29,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/write/salvar', ['as' => 'write.salvar', 'uses' => 'App\Http\Controllers\NoticiasController@store']);
 	Route::get('/write/{id}/edit', [App\Http\Controllers\NoticiasController::class, 'edit']);
 	Route::get('/home', [App\Http\Controllers\NoticiasController::class, 'index'])->name('home');
+	Route::put('/write/{id}/update', [App\Http\Controllers\NoticiasController::class, 'update']);
+	Route::delete('/write/{id}/delete', [App\Http\Controllers\NoticiasController::class, 'delete']);
 });

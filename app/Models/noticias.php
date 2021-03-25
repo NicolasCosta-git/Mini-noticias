@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class noticias extends Model
 {
     use HasFactory;
-    
-    protected $fillable = ['titulo','noticia','idUser'];
 
-    
+    protected $fillable = ['titulo', 'noticia', 'idUser'];
 }
