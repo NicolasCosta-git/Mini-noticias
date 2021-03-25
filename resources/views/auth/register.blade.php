@@ -9,7 +9,8 @@
             <div class="card card-register card-white">
                 <div class="card-header">
                     <img class="card-img" src="{{ asset('white') }}/img/19112.jpg" alt="Card image" style="top: 0px; width: 100%; z-index: 1 ">
-                    <h4 class="card-title mt-3" style="top:70px; left: 0px;">{{ ('Registre-se') }}</h4>
+                    <h4 class="card-title mt-3" style="top:70px; left: 30px;">{{ ('Registre-se,') }}</h4>
+                    <h4 class="card-title mt-3" style="top:40px;margin-top: 0px; left:30px;">{{ ('é de graça! ') }}</h4>
                 </div>
                 <form class="form" method="post" action="{{ route('register') }}" style="z-index: 2">
                     @csrf

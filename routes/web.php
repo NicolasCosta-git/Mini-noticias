@@ -18,11 +18,6 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
@@ -30,5 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
-	Route::get('/home/write', ['as' => 'write.novo', 'uses' => 'App\Http\Controllers\WriteNewController@novo']);
+	Route::get('/write', ['as' => 'write.novo', 'uses' => 'App\Http\Controllers\NoticiasController@create']);
+	Route::post('/write/salvar', ['as' => 'write.salvar', 'uses' => 'App\Http\Controllers\NoticiasController@store']);
+	Route::get('/write/{id}/edit', [App\Http\Controllers\NoticiasController::class, 'edit']);
+	Route::get('/home', [App\Http\Controllers\NoticiasController::class, 'index'])->name('home');
 });
