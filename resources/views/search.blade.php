@@ -1,4 +1,4 @@
-@extends('layouts.app' , ['pageSlug' => 'dashboard'])
+@extends('layouts.app', ['pageSlug' => 'dashboard'])
 
 @section('content')
 
@@ -11,7 +11,7 @@
                 </div>
                 <hr>
             </div>
-            <form class="form-inline mb-4" action=" {{ route('write.search',['id' => $uid]) }}" method="get">
+            <form class="form-inline mb-4" action=" {{ route('write.search') }}" method="get">
                 @csrf
                 @method('get')
                 <div class="input-group col-6 display-inline offset-2">
@@ -28,34 +28,34 @@
             </form>
         </div>
     </div>
+    @if(count($noticias) > 0)
     @foreach ($noticias as $noti)
-    $teste = 0;
-    @if ($teste == 0)
+    @if ($noti['idUser'] == Auth::id())
+    <div class="card text-center" style="">
+        <div class="card-body text-center my-2">
+            <p class="h1 card-title mt-3"> {{ $noti['titulo'] }} </p>
+            <hr class="col-4">
+        </div>
+        <div class="card-body text-center mx-5">
+            <p class="h3">{{ $noti['noticia'] }}</p>
+        </div>
+        <form action="{{'/write/'.$noti->id.'/delete'}}" method="POST">
+            @csrf
+            @method('delete')
+            <div class="form-inline col-12 justify-content-center" style="margin-bottom: 20px; padding-bottom: 20px;">
+                <a href="{{'/write/'.$noti->id.'/edit'}}" class="btn btn-default col-2 btn-lg"><strong class="text-white">Editar</strong></a>
+                <button type="submit" class="btn btn-danger col-2 btn-lg"><strong class="text-white">Deletar</strong></button>
+            </div>
+        </form>
+
+    </div>
+    @endif
+    @endforeach
+    @else
     <h1>
         Não foram encontrados resultados para sua pesquisa
     </h1>
-    @elseif ($noti['idUser'] == Auth::id())
-    $teste ++;
-        <div class="card text-center" style="">
-            <div class="card-body text-center my-2">
-                <p class="h1 card-title mt-3"> {{ $noti['titulo'] }} </p>
-                <hr class="col-4">
-            </div>
-            <div class="card-body text-center mx-5">
-                <p class="h3">{{ $noti['noticia'] }}</p>
-            </div>
-            <form action="{{'/write/'.$noti->id.'/delete'}}" method="POST">
-                @csrf
-                @method('delete')
-                <div class="form-inline col-12 justify-content-center" style="margin-bottom: 20px; padding-bottom: 20px;">
-                    <a href="{{'/write/'.$noti->id.'/edit'}}" class="btn btn-default col-2 btn-lg"><strong class="text-white">Editar</strong></a>
-                    <button type="submit" class="btn btn-danger col-2 btn-lg"><strong class="text-white">Deletar</strong></button>
-                </div>
-            </form>
-
-        </div>
     @endif
-    @endforeach
 </div>
 
 </div>

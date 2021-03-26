@@ -5,7 +5,7 @@
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
-                            <img src="{{ asset('white') }}/img/anime3.png" alt="{{ ('Profile Photo') }}">
+                            <img src="{{ asset('white') }}/img/default-avatar.png" alt="{{ ('Foto de perfil') }}">
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
                         <p class="d-lg-none">{{ ('Log out') }}</p>
@@ -32,7 +32,7 @@
                 <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="{{ ('SEARCH') }}">
                 <button type="button" class="close" data-dismiss="modal" aria-label="{{ ('Close') }}">
                     <i class="tim-icons icon-simple-remove"></i>
-              </button>
+                </button>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <div class="sidebar" data="blue">
     <div class="sidebar-wrapper">
         <div class="logo text-center">
-            <a href="#" class="simple-text logo-normal">{{ ('Mini notícias') }}</a>
+            <a href="#" class="simple-text logo-normal">{{ ('Pocket News') }}</a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug == 'dashboard') class="active " @endif>

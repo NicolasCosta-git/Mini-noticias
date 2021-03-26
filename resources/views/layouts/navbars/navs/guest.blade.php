@@ -9,7 +9,7 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <a class="navbar-brand" href="#">Mini notícias</a>
+            <a class="navbar-brand" href="#">Pocket News</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -17,12 +17,7 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
         </button>
         <div class="collapse navbar-collapse" id="navigation">
-            <ul class="navbar-nav ml-auto">
-                 <li class="nav-item">
-                    <a href="#" class="nav-link text-primary">
-                        <i class="tim-icons icon-app"></i> {{ ('Início') }}
-                    </a>
-                </li>                           
+            <ul class="navbar-nav ml-auto">                           
                 <li class="nav-item ">
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> {{ ('Registrar') }}

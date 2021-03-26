@@ -11,6 +11,22 @@
                         @method('put')
                         <div class="card-header text-center ">
                             <h2>Editando sua notícia</h2>
+                            @if ($errors->any())
+                                <div class="col-12 alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Erro:</strong> verifique se preencheu todos os campos.
+                                    <button style="top: 45px;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <i class="tim-icons icon-simple-remove"></i>
+                                    </button>
+                                </div>
+                                @endif
+                                @if (session()->has('message'))
+                                <div class=" col-12 alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>{{ session()->get('message') }}</strong>
+                                    <button style="top: 35px;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <i class="tim-icons icon-simple-remove"></i>
+                                    </button>
+                                </div>
+                            @endif
                             <hr>
                         </div>
                         <div class="card-body">
@@ -24,22 +40,6 @@
                             </div>
                             <div class='offset-4 '>
                                 <button type="submit" value="update" class="col-6  text-center btn btn-lg btn-default"> Salvar alterações</button>
-                                @if ($errors->any())
-                                <div class="col-6 alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Erro:</strong> verifique se preencheu todos os campos.
-                                    <button style="top: 45px;" type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <i class="tim-icons icon-simple-remove"></i>
-                                    </button>
-                                </div>
-                                @endif
-                                @if (session()->has('message'))
-                                <div class=" col-6 alert alert-success alert-dismissible fade show" role="alert">
-                                    <strong>{{ session()->get('message') }}</strong>
-                                    <button style="top: 35px;" type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <i class="tim-icons icon-simple-remove"></i>
-                                    </button>
-                                </div>
-                                @endif
                             </div>
                         </div>
                     </form>

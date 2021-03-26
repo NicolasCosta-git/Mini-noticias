@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\noticias;
+use GrahamCampbell\ResultType\Result;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,8 +24,9 @@ class NoticiasController extends Controller
 
     public function index()
     {
+        $id = Auth::id();
         $noticias = noticias::all();
-        return view('dashboard')->with(['noticias' => $noticias, 'uid' => Auth::id()]);
+        return view('dashboard')->with(['noticias' => $noticias, 'uid' => $id]);
     }
 
     public function edit($id)
@@ -48,9 +50,9 @@ class NoticiasController extends Controller
         return redirect()->back();
     }
 
-    public function search(Request $field, noticias $id)
+    public function search(Request $field)
     {
-        $results = noticias::where('titulo', 'like', '%'.$field->pesquisa.'%')->get();
+        $results = noticias::where('titulo', 'like', '%' . $field->pesquisa . '%')->get();
         return view('search')->with(['noticias' => $results, 'uid' => Auth::id()]);
     }
 }

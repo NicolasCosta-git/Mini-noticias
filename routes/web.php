@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NoticiasController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-	return view('welcome');
+	return view('auth.login');
 });
 
 Auth::routes();
@@ -27,9 +28,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::get('/write', ['as' => 'write.novo', 'uses' => 'App\Http\Controllers\NoticiasController@create']);
 	Route::post('/write/salvar', ['as' => 'write.salvar', 'uses' => 'App\Http\Controllers\NoticiasController@store']);
-	Route::get('/write/{id}/edit', [App\Http\Controllers\NoticiasController::class, 'edit']);
-	Route::get('/home', [App\Http\Controllers\NoticiasController::class, 'index'])->name('home');
-	Route::put('/write/{id}/update', [App\Http\Controllers\NoticiasController::class, 'update']);
-	Route::delete('/write/{id}/delete', [App\Http\Controllers\NoticiasController::class, 'delete']);
-	Route::get('/write/{id}/search', [App\Http\Controllers\NoticiasController::class, 'search'])->name('write.search');
+	Route::get('/write/{id}/edit', [NoticiasController::class, 'edit']);
+	Route::get('/home', [NoticiasController::class, 'index'])->name('home');
+	Route::put('/write/{id}/update', [NoticiasController::class, 'update']);
+	Route::delete('/write/{id}/delete', [NoticiasController::class, 'delete']);
+	Route::get('/write/search', [NoticiasController::class, 'search'])->name('write.search');
 });
