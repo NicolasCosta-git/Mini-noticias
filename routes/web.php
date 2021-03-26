@@ -31,4 +31,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/home', [App\Http\Controllers\NoticiasController::class, 'index'])->name('home');
 	Route::put('/write/{id}/update', [App\Http\Controllers\NoticiasController::class, 'update']);
 	Route::delete('/write/{id}/delete', [App\Http\Controllers\NoticiasController::class, 'delete']);
+	Route::get('/write/{id}/search', [App\Http\Controllers\NoticiasController::class, 'search'])->name('write.search');
 });

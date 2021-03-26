@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\noticias;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NoticiasController extends Controller
 {
@@ -23,7 +24,7 @@ class NoticiasController extends Controller
     public function index()
     {
         $noticias = noticias::all();
-        return view('dashboard')->with(['noticias' => $noticias]);
+        return view('dashboard')->with(['noticias' => $noticias, 'uid' => Auth::id()]);
     }
 
     public function edit($id)
@@ -43,8 +44,13 @@ class NoticiasController extends Controller
 
     public function delete(noticias $id)
     {
-
         $id->delete();
         return redirect()->back();
+    }
+
+    public function search(Request $field, noticias $id)
+    {
+        $results = noticias::where('titulo', 'like', '%'.$field->pesquisa.'%')->get();
+        return view('search')->with(['noticias' => $results, 'uid' => Auth::id()]);
     }
 }

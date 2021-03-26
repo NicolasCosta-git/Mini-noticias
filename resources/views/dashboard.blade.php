@@ -11,7 +11,9 @@
                                 </div>
                                 <hr>
                         </div>
-                        <div class="form-inline mb-4" action="">
+                        <form class="form-inline mb-4" action=" {{ route('write.search',['id' => $uid]) }}" method="get">
+                                @csrf
+                                @method('get')
                                 <div class="input-group col-6 display-inline offset-2">
                                         <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -21,9 +23,9 @@
                                         <input type="search" name="pesquisa" class="form-control" placeholder="Pesquisar por títulos de notícias">
                                 </div>
                                 <div class="pb-2">
-                                        <button class="btn btn-md btn-info"> Pesquisar</button>
+                                        <button type="submit" class="btn btn-md btn-info"> Pesquisar </button>
                                 </div>
-                        </div>
+                        </form>
                 </div>
         </div>
         @foreach ($noticias as $noti)
