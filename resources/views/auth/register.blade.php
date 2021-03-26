@@ -1,5 +1,4 @@
 @extends('layouts.app', ['class' => 'register-page', 'page' => ('Register Page'), 'contentClass' => 'register-page'])
-
 @section('content')
 <div class="row">
     <div class="col-md-12 mr-auto form-inline justify-content-center">

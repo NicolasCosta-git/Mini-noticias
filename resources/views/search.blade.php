@@ -1,7 +1,6 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard'])
-
 @section('content')
-
+<!-- Página dos resultados da pesquisa -->
 <div class="container">
     <div class="row">
         <div class="col col-md-12">
@@ -52,8 +51,8 @@
     @endif
     @endforeach
     @else
-    <h1>
-        Não foram encontrados resultados para sua pesquisa
+    <h1 class="text-center mt-5">
+        Não foram encontrados resultados para sua pesquisa.
     </h1>
     @endif
 </div>

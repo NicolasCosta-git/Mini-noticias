@@ -1,5 +1,6 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
+@extends('layouts.app', ['pageSlug' => 'write'])
 @section('content')
+<!-- Página usada para escrever nova notícia -->
 <div class="container">
     <div class="row">
         <div class=" col col-12">
@@ -38,8 +39,7 @@
                                 <textarea class="form-control font-weight-bold mb-5" rows="10" style="font-size: 1.15em; background-color: #eff0f2; width: 90%; padding-bottom: 500px" name="noticia" placeholder=""></textarea>
                             </div>
                             <div class='offset-4 '>
-                                <button type="submit" class="col-6  text-center btn btn-lg btn-info"> Publicar
-                                    notícia</button>
+                                <button type="submit" class="col-6  text-center btn btn-lg btn-info"> Publicar notícia</button>
                             </div>
                         </div>
                     </form>

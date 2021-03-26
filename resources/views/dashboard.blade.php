@@ -1,17 +1,16 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard'])
-
 @section('content')
-
+<!-- Página principal -->
 <div class="container">
     <div class="row">
         <div class="col col-md-12">
             <div class=" ">
                 <div class="header h1 col-6 offset-3" style="left: 20px;">
-                    Leia suas notícias aqui!                    
+                    Leia suas notícias aqui!
                 </div>
-                <hr> 
-                </div>
-                <form class="form-inline mb-4" action=" {{ route('write.search') }}" method="get">
+                <hr>
+            </div>
+            <form class="form-inline mb-4" action=" {{ route('write.search') }}" method="get">
                 @csrf
                 @method('get')
                 <div class="input-group col-6 display-inline offset-2">
@@ -26,33 +25,29 @@
                     <button type="submit" class="btn btn-md btn-info"> Pesquisar </button>
                 </div>
             </form>
-            </div>
         </div>
-        @foreach ($noticias as $noti)
-        @if ($noti['idUser'] == Auth::id())
-        <div class="card text-center" style="">
-            <div class="card-body text-center my-2">
-                <p class="h1 card-title mt-3"> {{ $noti['titulo'] }} </p>
-                <hr class="col-4">
-            </div>
-            <div class="card-body text-center mx-5">
-                <p class="h3">{{ Str::limit( $noti['noticia'], 400) }}</p>
-            </div>
-            <form action="{{'/write/'.$noti->id.'/delete'}}" method="POST">
-                @csrf
-                @method('delete')
-                <div class="form-inline col-12 justify-content-center" style="margin-bottom: 20px; padding-bottom: 20px;">
-                    <a href="{{'/write/'.$noti->id.'/edit'}}" class="btn btn-default col-2 btn-lg"><strong class="text-white">Editar</strong></a>
-                    <button type="submit" class="btn btn-danger col-2 btn-lg"><strong class="text-white">Deletar</strong></button>
-                </div>
-            </form>
-
-        </div>
-        @endif
-        @endforeach
     </div>
+    @foreach ($noticias as $noti)
+    @if ($noti['idUser'] == Auth::id())
+    <div class="card text-center" style="">
+        <div class="card-body text-center my-2">
+            <p class="h1 card-title mt-3"> {{ $noti['titulo'] }} </p>
+            <hr class="col-4">
+        </div>
+        <div class="card-body text-center mx-5">
+            <p class="h3">{{ Str::limit( $noti['noticia'], 400) }}</p>
+        </div>
+        <form action="{{'/write/'.$noti->id.'/delete'}}" method="POST">
+            @csrf
+            @method('delete')
+            <div class="form-inline col-12 justify-content-center" style="margin-bottom: 20px; padding-bottom: 20px;">
+                <a href="{{'/write/'.$noti->id.'/edit'}}" class="btn btn-default col-2 btn-lg"><strong class="text-white">Editar</strong></a>
+                <button type="submit" class="btn btn-danger col-2 btn-lg"><strong class="text-white">Deletar</strong></button>
+            </div>
+        </form>
 
+    </div>
+    @endif
+    @endforeach
 </div>
-
-
 @endsection

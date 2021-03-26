@@ -1,6 +1,6 @@
 @extends('layouts.app', ['pageSlug' => 'writeNew'])
-
 @section('content')
+<!-- Página de edição das notícias -->
 <div class="container">
     <div class="row">
         <div class=" col col-12">
@@ -12,20 +12,20 @@
                         <div class="card-header text-center ">
                             <h2>Editando sua notícia</h2>
                             @if ($errors->any())
-                                <div class="col-12 alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Erro:</strong> verifique se preencheu todos os campos.
-                                    <button style="top: 45px;" type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <i class="tim-icons icon-simple-remove"></i>
-                                    </button>
-                                </div>
-                                @endif
-                                @if (session()->has('message'))
-                                <div class=" col-12 alert alert-success alert-dismissible fade show" role="alert">
-                                    <strong>{{ session()->get('message') }}</strong>
-                                    <button style="top: 35px;" type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <i class="tim-icons icon-simple-remove"></i>
-                                    </button>
-                                </div>
+                            <div class="col-12 alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Erro:</strong> verifique se preencheu todos os campos.
+                                <button style="top: 45px;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <i class="tim-icons icon-simple-remove"></i>
+                                </button>
+                            </div>
+                            @endif
+                            @if (session()->has('message'))
+                            <div class=" col-12 alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{ session()->get('message') }}</strong>
+                                <button style="top: 35px;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <i class="tim-icons icon-simple-remove"></i>
+                                </button>
+                            </div>
                             @endif
                             <hr>
                         </div>
