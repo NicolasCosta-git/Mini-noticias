@@ -1,7 +1,7 @@
 # Sobre o projeto
 CRUD simples feito em Laravel (v8) utilizando o layout White Dashboard
 
-O usuário pode
+O usuário pode:
 * registrar e fazer log-in
 * editar detalhes do seu perfil
 * publicar notícias
